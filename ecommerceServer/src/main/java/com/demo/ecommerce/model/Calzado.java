@@ -56,12 +56,15 @@ public class Calzado implements Serializable {
     @JoinColumn(name = "codigo_material")
     private Material material;
 
+    @Getter
     @OneToMany(mappedBy = "calzado")
     private List<Foto> fotos = new ArrayList<Foto>();
 
+    @Getter
     @OneToMany(mappedBy = "calzado")
     private List<TallaCalzado> tallas = new ArrayList<TallaCalzado>();
 
+    @Getter
     @OneToMany(mappedBy = "calzado")
     private List<CalzadoColor> colores = new ArrayList<CalzadoColor>();
 

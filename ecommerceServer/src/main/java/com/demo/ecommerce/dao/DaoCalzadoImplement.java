@@ -18,7 +18,7 @@ public class DaoCalzadoImplement implements Dao<Calzado> {
 
     @Override
     public List<Calzado> getAll() {
-        String query ="FROM calzados";
+        String query ="FROM Calzado";
         return entityManager.createQuery(query).getResultList();
     }
 

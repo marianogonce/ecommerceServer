@@ -21,5 +21,5 @@ public class CalzadoController {
     public List<Calzado> getCalzados() {
         return daoCalzado.getAll();
     }
-    
+
 }
