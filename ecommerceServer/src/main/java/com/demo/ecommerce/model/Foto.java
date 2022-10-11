@@ -1,4 +1,4 @@
-package com.demo.ecommerce.model;
+package com.demo.ecommerce.Model;
 
 
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.demo.ecommerce.dao;
+package com.demo.ecommerce.Dao;
 
 import java.util.List;
 

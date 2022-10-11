@@ -1,6 +1,6 @@
-package com.demo.ecommerce.dao;
+package com.demo.ecommerce.Dao;
 
-import com.demo.ecommerce.model.Calzado;
+import com.demo.ecommerce.Model.Calzado;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

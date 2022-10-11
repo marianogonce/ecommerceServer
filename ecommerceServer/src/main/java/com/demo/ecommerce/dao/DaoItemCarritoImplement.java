@@ -1,7 +1,7 @@
-package com.demo.ecommerce.dao;
+package com.demo.ecommerce.Dao;
 
-import com.demo.ecommerce.model.ItemCarrito;
-import com.demo.ecommerce.model.ItemCarritoId;
+import com.demo.ecommerce.Model.ItemCarrito;
+import com.demo.ecommerce.Model.ItemCarritoId;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

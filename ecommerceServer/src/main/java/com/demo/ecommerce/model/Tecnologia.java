@@ -1,9 +1,8 @@
-package com.demo.ecommerce.model;
+package com.demo.ecommerce.Model;
 
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "tecnologia")
