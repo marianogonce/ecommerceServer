@@ -7,8 +7,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@IdClass(ItemCarritoId.class)
 @Table(name = "item_carrito")
-public class ItemCarrito implements Serializable {
+public class ItemCarrito {
 
 
     @Id

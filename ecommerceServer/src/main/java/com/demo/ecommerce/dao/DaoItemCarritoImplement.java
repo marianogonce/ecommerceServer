@@ -1,6 +1,7 @@
 package com.demo.ecommerce.dao;
 
 import com.demo.ecommerce.model.ItemCarrito;
+import com.demo.ecommerce.model.ItemCarritoId;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -28,11 +29,17 @@ public class DaoItemCarritoImplement implements  Dao<ItemCarrito>{
 
     @Override
     public void update(ItemCarrito itemCarrito) {
-        entityManager.createQuery("UPDATE item_carrito SET codigo_producto=" + itemCarrito.getCalzado().getCodigo_producto() + ", codigo_color=" + itemCarrito.getColor().getCodigo_color() +  ",numero_talla=" + itemCarrito.getTalla().getNumero_talla()).executeUpdate();
+        ItemCarrito itemAModificar = entityManager.find(ItemCarrito.class, new ItemCarritoId(itemCarrito.getCalzado(), itemCarrito.getColor(), itemCarrito.getTalla()));
+        entityManager.detach(itemAModificar);
+        itemAModificar = itemCarrito;
+        entityManager.merge(itemAModificar);
     }
 
     @Override
     public void delete(ItemCarrito itemCarrito) {
-       entityManager.createQuery("DELETE FROM item_carrito WHERE codigo_producto=" + itemCarrito.getCalzado().getCodigo_producto() + "AND codigo_color=" + itemCarrito.getColor().getCodigo_color() +  "AND numero_talla=" + itemCarrito.getTalla().getNumero_talla()).executeUpdate();
+        ItemCarrito itemAEliminar = entityManager.find(ItemCarrito.class, new ItemCarritoId(itemCarrito.getCalzado(), itemCarrito.getColor(), itemCarrito.getTalla()));
+        entityManager.remove(itemAEliminar);
     }
+
+
 }
