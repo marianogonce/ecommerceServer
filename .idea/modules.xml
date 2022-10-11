@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ServerFinal.iml" filepath="$PROJECT_DIR$/.idea/ServerFinal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/portfoliomarianoserver/ecommerceServer.iml" filepath="$PROJECT_DIR$/portfoliomarianoserver/ecommerceServer.iml" />
+    </modules>
+  </component>
+</project>
