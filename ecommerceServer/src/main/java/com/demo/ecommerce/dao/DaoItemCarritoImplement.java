@@ -28,11 +28,11 @@ public class DaoItemCarritoImplement implements  Dao<ItemCarrito>{
 
     @Override
     public void update(ItemCarrito itemCarrito) {
-
+        entityManager.createQuery("UPDATE item_carrito SET codigo_producto=" + itemCarrito.getCalzado().getCodigo_producto() + ", codigo_color=" + itemCarrito.getColor().getCodigo_color() +  ",numero_talla=" + itemCarrito.getTalla().getNumero_talla()).executeUpdate();
     }
 
     @Override
     public void delete(ItemCarrito itemCarrito) {
-
+       entityManager.createQuery("DELETE FROM item_carrito WHERE codigo_producto=" + itemCarrito.getCalzado().getCodigo_producto() + "AND codigo_color=" + itemCarrito.getColor().getCodigo_color() +  "AND numero_talla=" + itemCarrito.getTalla().getNumero_talla()).executeUpdate();
     }
 }
