@@ -17,7 +17,7 @@ public class DaoItemCarritoImplement implements  Dao<ItemCarrito>{
 
     @Override
     public List<ItemCarrito> getAll() {
-        String query ="FROM item_carrito";
+        String query ="FROM ItemCarrito";
         return entityManager.createQuery(query).getResultList();
     }
 
