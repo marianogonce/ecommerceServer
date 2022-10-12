@@ -1,7 +1,9 @@
 package com.demo.ecommerce.Controller;
 
-import com.demo.ecommerce.Dao.DaoItemCarritoImplement;
+import com.demo.ecommerce.Exception.ItemNoEncontradoException;
 import com.demo.ecommerce.Model.ItemCarrito;
+import com.demo.ecommerce.Model.ItemCarritoId;
+import com.demo.ecommerce.Service.IItemCarritoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +14,32 @@ import java.util.List;
 public class ItemCarritoController {
 
     @Autowired
-    private DaoItemCarritoImplement daoItemCarritoImplement;
+    private IItemCarritoService iItemCarritoService;
 
     @RequestMapping(value="api/itemCarrito", method = RequestMethod.GET)
     public List<ItemCarrito> getItemCarrito() {
-        return daoItemCarritoImplement.getAll();
+        return iItemCarritoService.getItemsCarrito();
     }
 
     @RequestMapping(value="api/itemCarrito", method = RequestMethod.POST)
     public void addItemCarrito(@Valid @RequestBody ItemCarrito nuevoItemCarrito) {
-        daoItemCarritoImplement.save(nuevoItemCarrito);
+        iItemCarritoService.saveItemCarrito(nuevoItemCarrito);
     }
 
     @RequestMapping(value="api/itemCarrito", method = RequestMethod.PUT)
-    public void updateItemCarrito(@Valid @RequestBody ItemCarrito itemCarrito) {
-        daoItemCarritoImplement.update(itemCarrito);
+    public void updateItemCarrito(@Valid @RequestBody ItemCarrito itemCarrito) throws ItemNoEncontradoException {
+        if (iItemCarritoService.findItemCarrito(itemCarrito)==null) {
+            throw new ItemNoEncontradoException("El item no ha sido encontrado");
+        }
+        iItemCarritoService.saveItemCarrito(itemCarrito);
     }
 
     @RequestMapping(value="api/itemCarrito", method = RequestMethod.DELETE)
-    public void deleteItemCarrito(@Valid @RequestBody ItemCarrito itemCarrito) {
-        daoItemCarritoImplement.delete(itemCarrito);
+    public void deleteItemCarrito(@Valid @RequestBody ItemCarrito itemCarrito) throws ItemNoEncontradoException {
+        if (iItemCarritoService.findItemCarrito(itemCarrito)==null) {
+            throw new ItemNoEncontradoException("El item no ha sido encontrado");
+        }
+        iItemCarritoService.deleteItemCarrito(itemCarrito);
     }
 
 

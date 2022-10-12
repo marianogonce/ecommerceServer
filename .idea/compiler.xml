@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ecommerceServer" />
+        <module name="ecommerce" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ecommerce" target="1.8" />
       <module name="ecommerceServer" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ecommerce" options="-parameters" />
       <module name="ecommerceServer" options="-parameters" />
     </option>
   </component>

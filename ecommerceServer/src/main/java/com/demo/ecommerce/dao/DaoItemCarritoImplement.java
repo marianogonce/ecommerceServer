@@ -41,5 +41,10 @@ public class DaoItemCarritoImplement implements  Dao<ItemCarrito>{
         entityManager.remove(itemAEliminar);
     }
 
+    @Override
+    public ItemCarrito find(ItemCarrito itemCarrito) {
+        return entityManager.find(ItemCarrito.class, new ItemCarritoId(itemCarrito.getCalzado(), itemCarrito.getColor(), itemCarrito.getTalla()));
+    }
+
 
 }
