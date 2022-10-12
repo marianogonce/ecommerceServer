@@ -58,6 +58,10 @@ public class Calzado implements Serializable {
     @NotBlank(message = "El campo fecha_lanzamiento es obligatorio")
     private String fecha_lanzamiento;
 
+    @Column(name = "cantidad_ventas")
+    @Getter
+    @Min(value=1)
+    private String cantidad_ventas;
 
     @Getter
     @ManyToOne(fetch = FetchType.EAGER)
